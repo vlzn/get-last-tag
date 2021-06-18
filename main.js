@@ -14,7 +14,7 @@ exec('git rev-list --tags --max-count=1', (err, rev, stderr) => {
 
     rev = rev.trim();
 
-    exec(`git tag --sort=committerdate | grep -E '^v[0-9]' | tail -1`, (err, tag, stderr) => {
+    exec(`git tag --sort=taggerdate | grep -E '^v[0-9]' | tail -1`, (err, tag, stderr) => {
         if (err) {
             console.log('\x1b[33m%s\x1b[0m', 'Could not find any tags because: ');
             console.log('\x1b[31m%s\x1b[0m', stderr);
